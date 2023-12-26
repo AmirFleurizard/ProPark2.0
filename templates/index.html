@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="UNCC ProPark">
+        <title>UNCC ProPark</title>
+        <!-- styles -->
+         <link rel="stylesheet" href='/static/main.css'>
+
+    </head>
+    <body>
+        <body style="background-color:rgb(193, 195, 196);">
+        <header>
+       <div class="topnav">
+            <nav>
+
+                        <a href="{{ url_for('index') }}"> Home</a>
+                        <a href="{{ url_for('show_decks') }}"> Decks</a>
+                        <a href="{{ url_for('display_schedule') }}">Schedule</a>
+
+                   {% if user %}
+
+                        <a class="split" href="{{ url_for('logout')}}">Logout</a>
+
+                   {% else %}
+
+                        <a class="split" href="{{ url_for('login') }}">Sign In</a>
+                        <a class="split" href="{{ url_for('register') }}">Register</a>
+                    {% endif %}
+            </nav>
+        </div>
+
+        <h1>WELCOME</h1>
+        <!-- image display -->
+        <section>
+          
+            <img class="mySlides" src="static/logo.png"
+            style="width:100%">
+          </section>
+    <!--Mission statement: -->
+    <section class="-container -center -content" 
+
+
+    style="max-width:600px">
+    </style>
+      <h2 class="-wide">UNCC's ProPark</h2> 
+      <p class="-opacity"><i>The official one stop for all of you parking needs at UNCC!</i></p>
+     
+      <p class="-justify"> MISSION STATEMENT: UNCC’s ProPark is a web based application that provides its users with answers to all things parking at UNC Charlotte. Our mission for this project was to create a mobile application or web application that uses data to produce information useful to its stakeholders. As our group discussed things that affect us we all agreed that we would like to center our project around school as that was something we all had in common. Our original design path was to generate a mobile application that would give its users useful information concerning parking. During the creation of said application we decided it would be both more tangible and a better suite for our group if we switched ProPark to a web application. In doing this our group produced a web based interface for our application. Finding parking on campus can be a big hassle for students especially when trying to get to class. The current solution for finding parking deck capacity requires you to go to PATS website then navigate the campus interactive map to then send you to google maps. Our group has realized that this could be a bit frustrating to the users of parking decks. We have acknowledged that some students may not even be aware of the PATS website. A vast majority of students have used the parking decks at some point during the development of their degrees. 
+       <h2 class="-opacity"><i>Meet Our Production Team</i></p>   
+                  <head>     
+                  <style>
+                  h1 {text-align: center;}
+                  p {text-align: center;}
+                  div {text-align: center;}
+                  </style>
+                  </head>
+                  <body>
+
+</section>
+
+  /*  <html>
+      <head>
+      <style>
+      h1 {text-align: center;}
+      h2 {text-align: center;}
+      p {text-align: center;}
+      div {text-align: center;}
+      </style>
+      </head>
+      <body>
+      
+    <!-- Project Team Roles -->
+<section class="w3-row-padding w3-center w3-light-grey">
+      <article class="w3-third">
+        <p>Austin Schuster</p>
+        <p>Our Project Manager</p>
+        <img src="static/pro man.jpeg" alt="Random Name" style="width:100%"class="center">
+        <style>
+            img {
+              border: 5px solid rgb(255, 255, 255);
+            }
+            </style>
+      </article>
+      <article class="w3-third">
+        <p>Nathan Hartzell</p>
+        <p>Our Back End Develolpers</p>
+        <img src="static/backend.jpeg" alt="Random Name" style="width:100%"class="center">
+
+      </article>
+      <article class="w3-third">
+        <p>Khalil Shew</p>
+        <p>Front End Developer</p>
+        <img src="static/front end.avif" alt="Random Name" style="width:100%"class="center">
+
+      </article>
+      <article class="w3-third">
+            <p>Lamar Bunch</p>
+            <p>Our Web Designer</p>
+            <img src="static/web.jpeg" alt="Random Name" style="width:100%"class="center">
+
+      </article>
+      <article class="w3-third">
+            <p>Amir Fleurizard</p>
+            <p>Our Web Designer</p>            
+            <img src="static/web dev.png" alt="Random Name" style="width:100%"class="center">
+<!-- people -->
+          </article>
+    </section>
+    <!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-black w3-xlarge">
+    <script>
+     
+
+
+  

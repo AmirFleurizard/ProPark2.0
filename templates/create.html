@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <body style="background-color:rgb(193, 195, 196);"></body>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="UNCC ProPark">
+        <title>UNCC ProPark</title>
+        <!-- styles -->
+         <link rel="stylesheet" href='/static/main.css'>
+
+    </head>
+    <body>
+       <div class="topnav">
+            <nav>
+
+                  <a href="{{ url_for('index') }}"> Home</a>
+                  <a href="{{ url_for('show_decks') }}"> Decks</a>
+                  <a href="{{ url_for('display_schedule') }}">Schedule</a>
+
+            {% if user %}
+
+                  <a class="split" href="{{ url_for('logout')}}">Logout</a>
+
+            {% else %}
+
+                  <a class="split" href="{{ url_for('login') }}">Sign In</a>
+                  <a class="split" href="{{ url_for('register') }}">Register</a>
+              {% endif %}
+            </nav>
+        </div>
+    <h2>Add a new building</h2>
+
+<form action='' method = "POST">
+    <p>Time <input type = "quantity" name = "time" /></p>
+    <p>Location <input type = "text" name = "location" /></p>
+    <p><input type = "submit" value = "Submit" /></p>
+</form>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <body style="background-color:rgb(193, 195, 196);"></body>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="UNCC ProPark">
+        <title>UNCC ProPark</title>
+        <!-- styles -->
+         <link rel="stylesheet" href='/static/main.css'>
+
+    </head>
+    <body>
+       <div class="topnav">
+            <nav>
+
+                  <a href="{{ url_for('index') }}"> Home</a>
+                  <a href="{{ url_for('show_decks') }}"> Decks</a>
+                  <a href="{{ url_for('display_schedule') }}">Schedule</a>
+
+            {% if user %}
+                  <a class="split" href="{{ url_for('create')}}">Add to Schedule</a>
+                  <a class="split" href="{{ url_for('logout')}}">Logout</a>
+                  
+
+            {% else %}
+
+                  <a class="split" href="{{ url_for('login') }}">Sign In</a>
+                  <a class="split" href="{{ url_for('register') }}">Register</a>
+              {% endif %}
+            </nav>
+        </div>
+
+        <h1>Schedule page</h1>
+        {% if user %}
+        <h1>hello {{user}} See schedule below</h1>
+       <ul>
+        <li class="building_list">{{event.location}} <br> {{event.time}}
+            <div class="circle_main" style="width: 50px">
+                <div class="circle_text_container">
+                    <div class = "circle_text">
+                <button><a href="{{ url_for('edit_event', event_id=event.id) }}">Edit</a></button>
+                    </div>
+                </div>
+            </div>
+            <div class="circle_main" style="width: 50px">
+                <div class="circle_text_container">
+                    <div class = "circle_text">
+                <button><form class="delete" action="{{ url_for('delete_event', event_id=event.id) }}" method="POST">
+                <input type="submit" value="Delete">
+                </form></button>
+                </div>
+            </div>
+         </div>
+        </li>
+      </ul>
+        {% endif %}

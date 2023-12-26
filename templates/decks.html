@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="UNCC ProPark">
+        <title>UNCC ProPark</title>
+        <!-- styles -->
+         <link rel="stylesheet" href='/static/main.css'>
+
+    </head>
+    <body>
+        <body style="background-color:rgb(193, 195, 196);">
+        <header>
+       <div class="topnav">
+            <nav>
+
+                        <a href="{{ url_for('index') }}"> Home</a>
+                        <a href="{{ url_for('show_decks') }}"> Decks</a>
+                        <a href="{{ url_for('display_schedule') }}">Schedule</a>
+
+                    {% if user %}
+
+                        <a class="split" href="{{ url_for('logout') }}">Logout</a>
+
+                    {% else %}
+
+                        <a class="split" href="{{ url_for('login') }}">Sign In</a>
+                        <a class="split" href="{{ url_for('register') }}">Register</a>
+                    {% endif %}
+            </nav>
+        </div>
+        </header>
+        <main>
+            {%if user %}
+                <h1>Hello {{user}}, welcome to UNCC ProPark. See the deck choices below</h1>
+            {% else %}
+                <h1>Hello, welcome to UNCC ProPark. See the deck choices below</h1>
+            {% endif %}
+        
+        <br><br>
+        <form class="filter" action="{{ url_for('show_decks') }}" method="post">
+            <label for="filter">Choose a filter</label>
+            <select name="filter" id="filter">
+                {% if filter %}
+                    <option value={{filter}}>{{filter}}</option>
+                {% endif %}
+                <option value="none">None</option>
+                <option value="closest">Closest</option>
+                <option value="favorite">Favorite</option>
+                <option value="most empty">Most Empty</option>
+                </select>
+            <label for="passtype">Choose a pass type</label>
+            <select name="passtype" id="passtype">
+                {% if passtype %}
+                    <option value={{passtype}}>{{passtype}}</option>
+                {% endif %}
+                <option value="all">All</option>
+                <option value="commuter">Commuter</option>
+                <option value="faculty">Faculty/Staff</option>
+                <option value="resident">Resident</option>
+            </select>
+            <br>
+            <input type="submit" value="Submit">
+          </form>
+          
+        <ul>
+            {% for deck in decks %}
+            <li class="decks"><a href="https://maps.google.com/?q={{deck.coord_x}},{{deck.coord_y}}">{{ deck.name }}</a><div class="circle_container">
+                {% if deck.percent >=50 %}
+                    <div class="circle_full">
+                {% elif deck.percent >= 25 %}
+                    <div class="circle_medium">
+                {% else %}
+                    <div class="circle_empty">
+                {% endif %}
+
+                    <div class="circle_text_container">
+                        <div class = "circle_text">
+                            {{ deck.percent }}%
+                        </div>
+                    </div>
+                </div></li><br>
+            {% endfor %}
+        </ul>
+        </main>
+        <footer>
+            &copy; UNCC Propark <br>
+            <p>Built by students from the Univeristy of North Carolina at Charlotte</p>
+            
+        </footer>
+    </body>

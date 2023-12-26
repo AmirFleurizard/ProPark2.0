@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="UNCC ProPark">
+        <title>UNCC ProPark</title>
+        <!-- styles -->
+         <link rel="stylesheet" href='/static/main.css'>
+         <body>
+            <body style="background-color:rgb(193, 195, 196);">
+            <header>
+    </head>
+    <body>
+       <div class="topnav">
+            <nav>
+
+                  <a href="{{ url_for('index') }}"> Home</a>
+                  <a href="{{ url_for('show_decks') }}"> Decks</a>
+                  <a href="{{ url_for('display_schedule') }}">Schedule</a>
+
+            {% if user %}
+                  <a class="split" href="{{ url_for('create')}}">Add to Schedule</a>
+                  <a class="split" href="{{ url_for('logout')}}">Logout</a>
+                  
+
+             {% else %}
+
+                  <a class="split" href="{{ url_for('login') }}">Sign In</a>
+                  <a class="split" href="{{ url_for('register') }}">Register</a>
+              {% endif %}
+            </nav>
+        </div>
+
+        {% if user %}
+        <h1>Schedule page</h1>
+        <h2>hello {{user}} See schedule below. Click the schedule block to make changes</h2>
+        {% for event in event %}
+       <ul>
+       <button class="scheduleButton"><a href="{{ url_for('get_event', event_id=event.id) }}"> <li class="building_list">{{event.location}} <br> {{event.time}}</li></a></button>
+      </ul>
+        {% endfor %}
+        {% else %}
+        <p>In order to see or create a schedule you must first Login. If you're already logged in click Add to schedule.
+        </p>
+        {% endif %}

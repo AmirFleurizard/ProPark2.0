@@ -1,0 +1,179 @@
+body{
+    background-color: #fff;
+}
+h1{
+  text-align: center;
+
+}
+h2{
+  text-align: center;
+}
+
+/*nav bar*/
+
+.topnav {
+    background-color: #005035;
+    overflow: hidden;
+  }
+
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .topnav a.split {
+    float: right;
+    background-color: #005035;
+    color: white;
+  }
+
+  .topnav a.split:hover {
+    background-color: #ddd;
+    color: black;
+  }
+/* Decks*/
+  .decks{
+    margin-left: auto;
+    margin-right: auto;
+    list-style-type: none;
+    width: 700px;
+    height: 50px;
+    border: 1px solid black;
+    background-color: #A49665;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    border-radius: 5px;
+    
+  }
+  .building_list{
+    margin-left: auto;
+    margin-right: auto;
+    list-style-type: none;
+    width: 700px;
+    height: 50px;
+    border: 1px solid black;
+    background-color: #A49665;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    border-radius: 5px;
+  }
+
+  .circle_container
+{
+	width : 50px;
+	height : 50px;
+	margin-left :600px;
+	padding : 0;
+    position: absolute
+
+}
+
+/* Circle Main draws the actual circle for percentage */
+.circle_full
+{
+	width : 90%;
+	height : 90%;
+	border-radius : 50%;
+	border : 2px solid black;
+	margin : 0;
+	padding : 0;
+    background-color: #6fd714;
+
+    
+}
+
+.circle_medium
+{
+	width : 90%;
+	height : 90%;
+	border-radius : 50%;
+	border : 2px solid black;
+	margin : 0;
+	padding : 0;
+    background-color: #ceeb40;
+
+    
+}
+.circle_empty
+{
+	width : 90%;
+	height : 90%;
+	border-radius : 50%;
+	border : 2px solid black;
+	margin : 0;
+	padding : 0;
+    background-color: #dc3d3d;
+
+    
+}
+
+/* Circle Text Container - constrains text area to within the circle */
+.circle_text_container
+{
+	/* area constraints */
+	width : 70%;
+	height : 70%;
+	max-width : 70%;
+	max-height : 70%;
+	margin : 0;
+	padding : 0;
+	position : relative;
+	left : 15%;
+	top : 15%;
+	transform-style : preserve-3d;
+	
+}
+
+
+.circle_text
+{
+	font: 11px "Tahoma", Arial, Serif;	
+	text-align : center;
+	position : relative;
+	top : 50%;
+	transform : translateY(-50%);
+}
+
+footer{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #005035;
+    color: white;
+    text-align: center;
+  }
+
+  button{
+    text-decoration: none;
+  }
+  .scheduleButton{
+    margin-left: auto;
+    margin-right: auto;
+    list-style-type: none;
+    width: 700px;
+    height: 50px;
+    border: 1px solid black;
+    background-color: #A49665;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    color: black;
+  }
+  
